@@ -31,7 +31,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       price: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           notEmpty: true,
@@ -40,7 +40,7 @@ module.exports = (sequelize, DataTypes) => {
         },
       },
       stock: {
-        type: DataTypes.NUMBER,
+        type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
           notNull: true,
@@ -55,7 +55,7 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
-      UserId: DataTypes.NUMBER,
+      UserId: DataTypes.INTEGER,
     },
     {
       sequelize,

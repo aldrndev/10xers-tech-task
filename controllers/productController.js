@@ -1,15 +1,15 @@
 const { Op } = require("sequelize");
-const { Product } = require("../models");
+const { Product, User } = require("../models");
 
 class ProductController {
   static async getProduct(req, res, next) {
     try {
       let filterProduct = req.query.filter
-        ? { brand: { [Op.in]: req.query.filter } }
+        ? { brand: { [Op.iLike]: req.query.filter } }
         : {};
 
       let searchProduct = req.query.search
-        ? { name: { [Op.like]: `%${req.query.search}%` } }
+        ? { name: { [Op.iLike]: `%${req.query.search}%` } }
         : {};
 
       let sortProduct = [];
@@ -26,9 +26,9 @@ class ProductController {
           ...searchProduct,
         },
         include: {
-          model: Product,
-          attibutes: {
-            exlcude: ["createdAt", "updatedAt"],
+          model: User,
+          attributes: {
+            exclude: ["createdAt", "updatedAt", "password"],
           },
         },
         order: sortProduct,
@@ -103,7 +103,6 @@ class ProductController {
 
       res.status(200).json({
         message: "Success delete product",
-        data: removeProduct,
       });
     } catch (error) {
       next(error);
@@ -124,9 +123,11 @@ class ProductController {
         return next(new Error("product_not_found"));
       }
 
+      const checkUpdate = await Product.findByPk(id);
+
       res.status(200).json({
         message: "Success edit product",
-        data: updateProduct,
+        data: checkUpdate,
       });
     } catch (error) {
       next(error);

@@ -16,16 +16,16 @@ module.exports = {
         type: Sequelize.STRING,
       },
       price: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
       },
       stock: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
       },
       brand: {
         type: Sequelize.STRING,
       },
       UserId: {
-        type: Sequelize.NUMBER,
+        type: Sequelize.INTEGER,
         references: {
           model: "Users",
           key: "id",
