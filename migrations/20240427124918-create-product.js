@@ -21,6 +21,9 @@ module.exports = {
       stock: {
         type: Sequelize.NUMBER,
       },
+      brand: {
+        type: Sequelize.STRING,
+      },
       UserId: {
         type: Sequelize.NUMBER,
         references: {

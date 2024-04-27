@@ -47,6 +47,14 @@ module.exports = (sequelize, DataTypes) => {
           notEmpty: true,
         },
       },
+      brand: {
+        type: DataTypes.STRING,
+        allowNull: false,
+        validate: {
+          notNull: true,
+          notEmpty: true,
+        },
+      },
       UserId: DataTypes.NUMBER,
     },
     {
