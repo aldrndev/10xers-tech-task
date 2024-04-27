@@ -53,7 +53,7 @@ class ProductController {
     try {
       const { id } = req.params;
 
-      const productDetail = await Product.findById(id);
+      const productDetail = await Product.findByPk(id);
 
       if (!productDetail) {
         return next(new Error("product_not_found"));
