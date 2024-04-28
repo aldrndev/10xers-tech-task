@@ -4,7 +4,7 @@ const errorHandler = (error, req, res, next) => {
 
   if (error.message === "forbidden") {
     statusCode = 403;
-    message = "Only admin can access this resources";
+    message = "Only admin allowed to this action";
   }
 
   if (error.message === "product_not_found") {
