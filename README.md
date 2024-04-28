@@ -6,6 +6,9 @@ Backend Repository for 10xers tech task, for API Documentation please check API_
 - Register
 - Get All Product
 - Get Product by ID
+- Filter Product by Brand
+- Sort Product by Price
+- Search Product by Name
 - Add Product
 - Edit Product by ID
 - Delete Product by ID 
