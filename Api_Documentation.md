@@ -206,6 +206,15 @@ Request :
 }
 ```
 
+- params
+```json
+{
+  "filter": "string",
+  "search": "string",
+  "sort": "string"
+}
+```
+
 _Response (200 - Ok)_
 
 ```json
