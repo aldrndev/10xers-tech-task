@@ -18,41 +18,60 @@ module.exports = (sequelize, DataTypes) => {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: true,
-          notNull: true,
+          notEmpty: {
+            msg: "Name is required",
+          },
+          notNull: {
+            msg: "Name is required",
+          },
         },
       },
       description: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notEmpty: true,
-          notNull: true,
+          notEmpty: {
+            msg: "Description is required",
+          },
+          notNull: {
+            msg: "Description is required",
+          },
         },
       },
       price: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
-          notEmpty: true,
-          notNull: true,
-          min: 1,
+          notEmpty: {
+            msg: "Price is required",
+          },
+          notNull: {
+            msg: "Price is required",
+          },
         },
       },
       stock: {
         type: DataTypes.INTEGER,
         allowNull: false,
         validate: {
-          notNull: true,
-          notEmpty: true,
+          notEmpty: {
+            msg: "Stock is required",
+          },
+          notNull: {
+            msg: "Stock is required",
+          },
         },
       },
       brand: {
         type: DataTypes.STRING,
         allowNull: false,
         validate: {
-          notNull: true,
-          notEmpty: true,
+          notEmpty: {
+            msg: "Brand is required",
+          },
+          notNull: {
+            msg: "Brand is required",
+          },
         },
       },
       UserId: DataTypes.INTEGER,

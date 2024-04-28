@@ -53,7 +53,14 @@ class ProductController {
     try {
       const { id } = req.params;
 
-      const productDetail = await Product.findByPk(id);
+      const productDetail = await Product.findByPk(id, {
+        include: {
+          model: User,
+          attributes: {
+            exclude: ["createdAt", "updatedAt", "password"],
+          },
+        },
+      });
 
       if (!productDetail) {
         return next(new Error("product_not_found"));
